@@ -1,0 +1,124 @@
+.username {
+  color: blue;
+  font-weight: bold; /* optionnel */
+}
+
+/* Message de bienvenue sous le header */
+.welcome-message {
+  text-align: center; /* centre le texte */
+  padding: 15px 20px; /* un peu d'air à l’intérieur */
+  max-width: 800px; /* limite la largeur pour que ça reste lisible */
+  background-color: #f7f9fc; /* léger fond clair pour mettre en valeur */
+  border-radius: 8px; /* coins arrondis */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* petite ombre */
+
+  margin: 70px auto -80px auto;
+}
+
+/* Style du titre */
+.welcome-message h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+/* Style du paragraphe */
+.welcome-message p {
+  font-size: 15px;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* Container général */
+
+.burgers-container {
+  padding: 16px;
+  padding-top: 100px; /* espace pour le header fixe */
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid responsive avec espace uniforme */
+mat-grid-list {
+  width: 100%;
+  display: grid;
+  grid-gap: 24px; /* augmente l’espace global entre cartes */
+  grid-template-columns: repeat(
+    4,
+    250px
+  ); /* 4 cartes maximum par ligne, largeur fixe */
+  justify-content: center;
+}
+
+/* Ajustement des colonnes pour responsive */
+@media (max-width: 1200px) {
+  mat-grid-list {
+    grid-template-columns: repeat(3, 250px);
+  }
+}
+
+@media (max-width: 900px) {
+  mat-grid-list {
+    grid-template-columns: repeat(2, 250px);
+  }
+}
+
+@media (max-width: 600px) {
+  mat-grid-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Carte burger avec largeur et hauteur fixes */
+.burger-card {
+  width: 250px; /* largeur fixe */
+  height: 350px; /* hauteur fixe */
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #fff;
+  margin-bottom: 16px; /* ajoute de l’espace vertical entre les lignes */
+}
+
+.burger-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteneur image avec hauteur fixe */
+.burger-card img {
+  width: 100%;
+  height: 180px; /* hauteur fixe pour toutes les images */
+  object-fit: cover; /* recadrage pour remplir le conteneur */
+  background-color: #f5f5f5; /* couleur de fond si image absente */
+  display: block;
+}
+
+/* Contenu de la carte */
+mat-card-content {
+  flex-grow: 1;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centre le contenu verticalement */
+  gap: 4px; /* réduit l’espace entre le nom et le prix */
+}
+
+mat-card-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+mat-card-content p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #4caf50;
+}

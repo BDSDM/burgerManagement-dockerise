@@ -1,0 +1,23 @@
+<div class="welcome-message">
+  <h2>
+    Bienvenue <span class="username">{{ userName }}</span> sur BurgerManager !
+  </h2>
+  <p>
+    Nous sommes ravis de vous accueillir sur notre site de commande de burgers
+    en ligne. Vous pouvez commencer à ajouter au panier un burger et par la
+    suite boisson puis dessert. Faites vous plaisir !!!
+  </p>
+</div>
+<div class="burgers-container">
+  <mat-grid-list cols="3" gutterSize="16px" rowHeight="350px">
+    <mat-grid-tile *ngFor="let burger of burgers">
+      <mat-card class="burger-card" (click)="onBurgerClick(burger)">
+        <img mat-card-image [src]="burger.image" alt="{{ burger.name }}" />
+        <mat-card-content>
+          <h3>{{ burger.name }}</h3>
+          <p>{{ burger.price | currency : "EUR" }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

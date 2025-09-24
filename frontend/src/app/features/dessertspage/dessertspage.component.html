@@ -1,0 +1,21 @@
+<div class="desserts-container">
+  <button
+    mat-raised-button
+    color="primary"
+    class="cart-button"
+    (click)="goToBasket()"
+  >
+    Consulter Panier
+  </button>
+  <mat-grid-list cols="3" gutterSize="16px" rowHeight="350px">
+    <mat-grid-tile *ngFor="let dessert of desserts">
+      <mat-card class="dessert-card" (click)="onDessertClick(dessert)">
+        <img mat-card-image [src]="dessert.image" alt="{{ dessert.name }}" />
+        <mat-card-content>
+          <h3>{{ dessert.name }}</h3>
+          <p>{{ dessert.price | currency : "EUR" }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

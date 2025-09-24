@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>❌ Supprimer le drink</h2>
+<mat-dialog-content>
+  <p>
+    Voulez-vous vraiment supprimer le drink
+    <strong>{{ data.name }}</strong> ?
+  </p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()">
+    Supprimer
+  </button>
+</mat-dialog-actions>

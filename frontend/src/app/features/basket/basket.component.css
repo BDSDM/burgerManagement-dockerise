@@ -1,0 +1,105 @@
+.basket-container {
+  max-width: 900px;
+  margin: 100px auto 50px;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+.empty-cart {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement */
+  height: 200px; /* ajuster selon la hauteur souhaitée */
+  font-size: 20px;
+  color: #555;
+  font-weight: bold;
+}
+
+.basket-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+}
+
+.menu-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-card p {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.basket-container h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #222;
+  border-top: 2px solid #eee;
+  padding-top: 15px;
+  margin-top: 20px;
+}
+.confirm-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #28a745; /* vert */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.confirm-btn:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .basket-container {
+    margin: 80px 20px 40px;
+    padding: 15px;
+  }
+
+  .basket-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .menu-card p {
+    font-size: 1rem;
+  }
+
+  .basket-container h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .basket-container {
+    margin: 60px 10px 30px;
+    padding: 10px;
+  }
+
+  .basket-container h2 {
+    font-size: 1.4rem;
+  }
+
+  .menu-card p {
+    font-size: 0.95rem;
+  }
+
+  .basket-container h3 {
+    font-size: 1.3rem;
+  }
+}

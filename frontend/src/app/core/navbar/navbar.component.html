@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="logo">
+    <img src="assets/images/burgerimage1.jpg" alt="Logo" class="logo-image" />
+    BurgerManager
+  </div>
+
+  <div class="navbar-buttons">
+    <!-- ✅ Si l'utilisateur EST connecté -->
+    <ng-container *ngIf="authService.isLoggedIn(); else notLoggedIn">
+      <!-- Bouton rouge visible uniquement connecté -->
+      <button class="btn btn-red" (click)="onRedButtonClick()">A</button>
+
+      <button class="btn btn-orange" routerLink="/desserts">Desserts</button>
+      <button class="btn btn-orange" routerLink="/burgers">Burgers</button>
+      <button class="btn btn-orange" routerLink="/drinks">Drinks</button>
+      <button class="btn btn-orange" routerLink="/dashboard">Users</button>
+      <button class="btn btn-orange" routerLink="/burgerspage">Order</button>
+      <button class="btn btn-orange logout-button" (click)="logout()">
+        Logout
+      </button>
+    </ng-container>
+
+    <!-- ✅ Si l'utilisateur N'EST PAS connecté -->
+    <ng-template #notLoggedIn>
+      <button
+        class="btn btn-orange login-button"
+        (click)="openConnexionDialog()"
+      >
+        Connexion
+      </button>
+    </ng-template>
+  </div>
+</nav>

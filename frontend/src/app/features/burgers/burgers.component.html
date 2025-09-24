@@ -1,0 +1,106 @@
+<div class="burgers-container">
+  <h2>Gestion des Burgers</h2>
+
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    + Ajouter un burger
+  </button>
+
+  <mat-table
+    [dataSource]="dataSource"
+    class="mat-elevation-z8"
+    *ngIf="burgers.length > 0"
+  >
+    <!-- Nom -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let burger"> {{ burger.name }} </mat-cell>
+    </ng-container>
+
+    <!-- Prix -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef> Prix (€) </mat-header-cell>
+      <mat-cell *matCellDef="let burger"> {{ burger.price }} </mat-cell>
+    </ng-container>
+
+    <!-- Image -->
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-cell *matCellDef="let burger">
+        <img
+          *ngIf="burger.image"
+          [src]="burger.image"
+          alt="{{ burger.name }}"
+          width="50"
+        />
+      </mat-cell>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let burger">
+        <button mat-icon-button color="primary" (click)="openDialog(burger)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="deleteBurger(burger.id, burger.name)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <!-- Pagination -->
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+
+<!-- Dialog pour ajouter/modifier -->
+<ng-template #burgerDialog>
+  <h2 mat-dialog-title>{{ editingBurger ? "Modifier" : "Ajouter" }} Burger</h2>
+  <mat-dialog-content>
+    <form [formGroup]="burgerForm">
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Prix (€)</mat-label>
+        <input matInput type="number" formControlName="price" />
+      </mat-form-field>
+
+      <!-- Upload Image -->
+      <div>
+        <label>Image :</label>
+        <input type="file" (change)="onFileSelected($event)" />
+      </div>
+
+      <!-- Prévisualisation image -->
+      <div *ngIf="previewImage">
+        <p>Prévisualisation :</p>
+        <img [src]="previewImage" alt="Prévisualisation" width="100" />
+      </div>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="dialogRef.close()">Annuler</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="submitForm()"
+      [disabled]="burgerForm.invalid"
+    >
+      Enregistrer
+    </button>
+  </mat-dialog-actions>
+</ng-template>

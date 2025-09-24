@@ -1,0 +1,125 @@
+/* Conteneur du formulaire */
+.register-form {
+  max-width: 500px;
+  margin: 5vh auto;
+  padding: 2.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* Titre */
+.register-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+/* Champs de formulaire */
+.full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  font-size: 1rem;
+}
+
+mat-form-field input.mat-input-element {
+  padding: 12px 15px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  border: 1px solid #cbd5e1;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+mat-form-field input.mat-input-element:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* Boutons */
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.actions button {
+  flex: 1;
+  font-weight: 600;
+  height: 45px;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button[mat-raised-button][disabled] {
+  background-color: #cbd5e1 !important;
+  color: #f1f5f9 !important;
+}
+
+button[mat-raised-button]:not([disabled]):hover {
+  background-color: #2563eb !important;
+}
+
+button[mat-stroked-button] {
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+}
+
+button[mat-stroked-button]:hover {
+  background-color: #e0f2fe;
+}
+
+/* Messages d'erreur et succès */
+.error,
+.success {
+  text-align: center;
+  font-weight: 500;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.error {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #f87171;
+}
+
+.success {
+  background-color: #dcfce7;
+  color: #16a34a;
+  border: 1px solid #4ade80;
+}
+
+/* Messages mat-error */
+mat-error {
+  font-size: 0.875rem;
+  color: #b91c1c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .register-form {
+    padding: 2rem 1rem;
+    margin: 2vh 1rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .register-title {
+    font-size: 2rem;
+  }
+}

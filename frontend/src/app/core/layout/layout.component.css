@@ -1,0 +1,6 @@
+.content {
+  padding: 20px;
+  margin-top: 60px; /* pour ne pas cacher le navbar */
+  margin-bottom: 60px; /* pour ne pas cacher le footer */
+  min-height: calc(100vh - 120px); /* espace total */
+}

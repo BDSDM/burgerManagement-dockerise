@@ -1,0 +1,15 @@
+.footer {
+  background-color: #007bff; /* bleu principal */
+  color: white;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px 30px;
+}
+
+.footer-content {
+  text-align: center;
+  font-size: 16px;
+}

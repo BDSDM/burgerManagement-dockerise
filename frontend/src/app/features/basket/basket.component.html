@@ -1,0 +1,28 @@
+<div
+  class="basket-container"
+  *ngIf="menusWithPrices.length > 0; else emptyCart"
+>
+  <h2>Mon Panier</h2>
+
+  <div *ngFor="let menu of menusWithPrices" class="menu-card">
+    <p *ngIf="menu.burger">
+      🍔 Burger : {{ menu.burger }} - {{ menu.burgerPrice | currency : "EUR" }}
+    </p>
+    <p *ngIf="menu.drink">
+      🥤 Boisson : {{ menu.drink }} - {{ menu.drinkPrice | currency : "EUR" }}
+    </p>
+    <p *ngIf="menu.dessert">
+      🍰 Dessert : {{ menu.dessert }} -
+      {{ menu.dessertPrice | currency : "EUR" }}
+    </p>
+  </div>
+
+  <h3>Total : {{ totalPrice | currency : "EUR" }}</h3>
+  <button class="confirm-btn" (click)="confirmOrder()">
+    ✅ Confirmer la commande
+  </button>
+</div>
+
+<ng-template #emptyCart>
+  <p class="empty-cart">Votre panier est vide 😔</p>
+</ng-template>

@@ -1,0 +1,22 @@
+<div class="drinks-container">
+  <button
+    mat-raised-button
+    color="primary"
+    class="cart-button"
+    (click)="goToBasket()"
+  >
+    Consulter Panier
+  </button>
+
+  <mat-grid-list cols="3" gutterSize="16px" rowHeight="350px">
+    <mat-grid-tile *ngFor="let drink of drinks">
+      <mat-card class="drink-card" (click)="onDrinkClick(drink)">
+        <img mat-card-image [src]="drink.image" alt="{{ drink.name }}" />
+        <mat-card-content>
+          <h3>{{ drink.name }}</h3>
+          <p>{{ drink.price | currency : "EUR" }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
