@@ -8,8 +8,8 @@ services:
     env_file:
       - app.env
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: burgermanagement
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
     ports:
       - "${DB_PORT}:3306"
     volumes:
@@ -17,13 +17,8 @@ services:
     healthcheck:
       test:
         [
-          "CMD",
-          "mysqladmin",
-          "ping",
-          "-h",
-          "localhost",
-          "-u${DB_USER}",
-          "-p${DB_PASSWORD}",
+          "CMD-SHELL",
+          "mysqladmin ping -h localhost -u${DB_USER} -p${DB_PASSWORD}",
         ]
       interval: 10s
       timeout: 5s
