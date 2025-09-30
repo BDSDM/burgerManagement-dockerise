@@ -1,6 +1,6 @@
 # 🍔 Burger Management – Application de Gestion de Burger
 
-**Burger Management** est une application fullstack (Angular + Spring Boot + MySQL) permettant aux utilisateurs de commander un **burger** ou un **menu complet** (burger + boisson + dessert).  
+**Burger Management** est une application fullstack (Angular + Spring Boot + MySQL) permettant aux utilisateurs de commander un **burger** ou un **menu complet** (burger + boisson + dessert) et de recevoir la facture du panier par mail.  
 Elle propose également une interface **administrateur** pour gérer les utilisateurs, leurs rôles et leurs accès.
 
 ---
