@@ -1,4 +1,5 @@
 services:
+  # --- BASE DE DONNÉES ---
   db:
     image: mysql:8.0
     container_name: mysql_db
@@ -24,8 +25,9 @@ services:
       retries: 5
       start_period: 30s
 
+  # --- BACKEND (Spring Boot) ---
   backend:
-    image: bdsdmiii/burgermanagement-backend:latest
+    image: bdsdmiii/burgermanagement-backend:old
     container_name: spring_app
     restart: always
     env_file:
@@ -41,8 +43,9 @@ services:
     volumes:
       - backend_uploads:/app/uploads
 
+  # --- FRONTEND (Angular + NGINX) ---
   frontend:
-    image: bdsdmiii/burgermanagement-frontend:latest
+    image: bdsdmiii/burgermanagement-frontend:old
     container_name: angular_app
     restart: always
     depends_on:
@@ -51,6 +54,7 @@ services:
     ports:
       - "4200:80"
 
+# --- DÉCLARATION DES VOLUMES PERSISTANTS ---
 volumes:
   db_data:
   backend_uploads:
